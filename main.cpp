@@ -102,7 +102,7 @@ int main() {
     if (choice == 1) {
         map<string,int> wordCount;
         map<string,set<int>> wordLines;
-        int totalWords = 0;
+        int totalWords = 0; // bendras zodziu sk be url
         string line;
         int lineNumber = 0;
 
