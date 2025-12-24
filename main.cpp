@@ -10,10 +10,10 @@
 
 using namespace std;
 
-// URL regex
+// url regex
 regex urlRegex(R"((https?://|http://|www\.)[A-Za-z0-9./?=&%_-]+\.[A-Za-z]{2,})", regex_constants::icase);
 
-// Funkcija mažosioms raidėms
+// mazosios r
 string toLower(const string& s) {
     string res;
     for (char c : s)
@@ -74,6 +74,8 @@ void processLineURLs(const string& line, const set<string>& tlds, set<string>& u
         if (pos != string::npos) {
             string tld = url.substr(pos + 1);
             transform(tld.begin(), tld.end(), tld.begin(), ::tolower);
+
+            //jei TLD nera sarase, tai praleidziam
             if (tlds.count(tld) == 0) continue;
         }
         urls.insert(url);
@@ -168,3 +170,4 @@ int main() {
 
     return 0;
 }
+
